@@ -47,6 +47,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MenuOpenClick(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
   private
     { Private declarations }
     Resizing: Boolean;
@@ -54,6 +55,7 @@ type
     function IsImageCorrect(b: TBitmap; Width, Height: Integer): TBitmapFit;
     function RewmapBitmap(InBmp, OutBmp: TBitmap; Remap: TRemapArray; SizeX,
       SizeY: Integer): Boolean;
+    procedure GenarateOutput;
   public
     { Public declarations }
   end;
@@ -202,12 +204,15 @@ begin
 end;
 
 procedure TForm1.LoadTile(fn: String);
-var
-  fit: TBitmapFit;
-  r : TRect;
 begin
   OriginalImage.Bitmap.LoadFromFile(fn);
+  GenarateOutput();
+end;
 
+procedure TForm1.GenarateOutput();
+var
+  fit: TBitmapFit;
+begin
   fit := IsImageCorrect(OriginalImage.Bitmap, TileX, TileY);
   if fit.GoodFit then
     begin
@@ -279,6 +284,16 @@ begin
     end;
   surf.EndScene;
   Result := res;
+end;
+
+procedure TForm1.ComboBox1Change(Sender: TObject);
+begin
+  if not OriginalImage.Bitmap.IsEmpty then
+    begin
+      Label3.Text := 'Changed to ' + ComboBox1.Items[ComboBox1.ItemIndex];
+      GenarateOutput();
+    end;
+
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);

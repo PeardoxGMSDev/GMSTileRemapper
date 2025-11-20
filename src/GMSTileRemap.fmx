@@ -58,6 +58,7 @@ object Form1: TForm1
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
+          OnChange = ComboBox1Change
         end
       end
       object OriginalImageGrid: TImage
@@ -151,6 +152,9 @@ object Form1: TForm1
     object Label3: TLabel
       Position.X = 16.000000000000000000
       Position.Y = 8.000000000000000000
+      Size.Width = 393.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
       Text = 'Label3'
       TabOrder = 1
     end
