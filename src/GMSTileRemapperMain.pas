@@ -131,17 +131,38 @@ end;
 procedure TForm1.GenarateOutput();
 var
   fit: TBitmapFit;
+  bmp: TBitmap;
 begin
+  bmp := Nil;
   fit := IsImageCorrect(OriginalImage.Bitmap, TileX, TileY);
   if fit.GoodFit then
     begin
       Label3.Text := Format('Good Image : %d x %d - %d x %d', [OriginalImage.Bitmap.Width, OriginalImage.Bitmap.Height, fit.Width, fit.Height]);
-      OriginalImageGrid.Bitmap := MakeGrid(OriginalImage.Bitmap.Width, OriginalImage.Bitmap.Height, fit.Width, fit.Height);
+      try
+        bmp := MakeGrid(OriginalImage.Bitmap.Width, OriginalImage.Bitmap.Height, fit.Width, fit.Height);
+        OriginalImageGrid.Bitmap := bmp;
+      finally
+        if Assigned(bmp) then
+          bmp.free;
+      end;
 
-      OutputImage.Bitmap := TBitmap.Create(7 * TileX, 7 * TileY);
-      OutputImage.Bitmap.Clear($00FFFFFF);
-      RewmapBitmap(OriginalImage.Bitmap, OutputImage.Bitmap, Remaps[fit.RemapID], TileX, TileY);
-      OutputImageGrid.Bitmap := MakeGrid(OutputImage.Bitmap.Width, OutputImage.Bitmap.Height, 7, 7, True);
+      try
+        bmp := TBitmap.Create(7 * TileX, 7 * TileY);
+        bmp.Clear($00FFFFFF);
+        RewmapBitmap(OriginalImage.Bitmap, bmp, Remaps[fit.RemapID], TileX, TileY);
+        OutputImage.Bitmap := bmp;
+      finally
+        if Assigned(bmp) then
+          bmp.free;
+      end;
+
+      try
+        bmp := MakeGrid(OutputImage.Bitmap.Width, OutputImage.Bitmap.Height, 7, 7, True);
+        OutputImageGrid.Bitmap := bmp;
+      finally
+        if Assigned(bmp) then
+          bmp.free;
+      end;
 
       OutputImage.Bitmap.SaveToFile('C:\src\GMSTileRemapper\out.png');
 
