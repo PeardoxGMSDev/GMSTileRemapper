@@ -1,0 +1,156 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'TileBitmap'
+  ClientHeight = 402
+  ClientWidth = 462
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Align = Center
+    Size.Width = 145.000000000000000000
+    Size.Height = 319.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object ColorButton4: TColorButton
+      Color = claWhite
+      Position.X = 24.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 12
+      OnClick = ColorButton4Click
+    end
+    object ColorButton3: TColorButton
+      Color = claWhite
+      Position.X = 56.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 10
+      OnClick = ColorButton3Click
+    end
+    object ColorButton2: TColorButton
+      Color = claWhite
+      Position.X = 88.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      OnClick = ColorButton2Click
+    end
+    object ColorButton5: TColorButton
+      Color = claWhite
+      Position.X = 24.000000000000000000
+      Position.Y = 64.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 11
+      OnClick = ColorButton5Click
+    end
+    object ColorButton1: TColorButton
+      Color = claWhite
+      Position.X = 88.000000000000000000
+      Position.Y = 64.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      OnClick = ColorButton1Click
+    end
+    object ColorButton6: TColorButton
+      Color = claWhite
+      Position.X = 24.000000000000000000
+      Position.Y = 96.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      OnClick = ColorButton6Click
+    end
+    object ColorButton7: TColorButton
+      Color = claWhite
+      Position.X = 56.000000000000000000
+      Position.Y = 96.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      OnClick = ColorButton7Click
+    end
+    object ColorButton8: TColorButton
+      Color = claWhite
+      Position.X = 88.000000000000000000
+      Position.Y = 96.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      OnClick = ColorButton8Click
+    end
+    object Mask: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 16.000000000000000000
+      Position.Y = 136.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 36.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Mask'
+      TabOrder = 2
+    end
+    object MVal: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 16.000000000000000000
+      Position.Y = 177.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 36.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Mask'
+      TabOrder = 1
+    end
+    object Switch1: TSwitch
+      IsChecked = True
+      Position.X = 16.000000000000000000
+      Position.Y = 275.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 27.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      OnSwitch = Switch1Switch
+    end
+    object SwitchLabel: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 80.000000000000000000
+      Position.Y = 277.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 24.000000000000000000
+      Text = 'Exit'
+      TabOrder = 4
+    end
+    object MBin: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = -40.000000000000000000
+      Position.Y = 218.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 36.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Mask'
+      TabOrder = 0
+    end
+  end
+end

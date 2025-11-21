@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D5D26897-2EB3-4310-8CD6-10EEB7F50DDE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="src\GMSTileRemapper.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\TileBitmap.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GMSTileRemapper">
+        <MSBuild Projects="src\GMSTileRemapper.dproj"/>
+    </Target>
+    <Target Name="GMSTileRemapper:Clean">
+        <MSBuild Projects="src\GMSTileRemapper.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GMSTileRemapper:Make">
+        <MSBuild Projects="src\GMSTileRemapper.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TileBitmap">
+        <MSBuild Projects="src\TileBitmap.dproj"/>
+    </Target>
+    <Target Name="TileBitmap:Clean">
+        <MSBuild Projects="src\TileBitmap.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TileBitmap:Make">
+        <MSBuild Projects="src\TileBitmap.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GMSTileRemapper;TileBitmap"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GMSTileRemapper:Clean;TileBitmap:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GMSTileRemapper:Make;TileBitmap:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
